@@ -6,7 +6,7 @@ A 2D physics-based platformer where you shoot bullets to propel yourself through
 
 ## Gameplay Demo
 
-https://github.com/user-attachments/assets/gameplay-video.mp4
+https://github.com/user-attachments/assets/23b445d3-fe04-405b-9313-1cda7a12e5c4
 
 ## Overview
 
