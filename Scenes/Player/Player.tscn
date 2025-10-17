@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpl84h5jq7uph"]
+
+[ext_resource type="Script" uid="uid://s02tdtiyqgb6" path="res://Scripts/Player/Player.cs" id="2"]
+[ext_resource type="PackedScene" uid="uid://diicau83x83bx" path="res://Scenes/Player/PlayerBullet.tscn" id="4"]
+[ext_resource type="AudioStream" uid="uid://baagip1y3w3cr" path="res://Sounds/SoundEffects/Player/PlayerShooting.wav" id="5"]
+[ext_resource type="Texture2D" uid="uid://bh5mq2hgllcy1" path="res://Assets/Player/Player.svg" id="5_4wape"]
+[ext_resource type="AudioStream" uid="uid://drlamobdsycaf" path="res://Sounds/SoundEffects/Player/PlayerDeath2.wav" id="6"]
+[ext_resource type="Texture2D" uid="uid://dp1xsuy3sbhq8" path="res://Assets/Player/Weapon.svg" id="6_4wape"]
+
+[sub_resource type="CircleShape2D" id="3"]
+radius = 48.0
+
+[node name="Player" type="RigidBody2D" groups=["Player"]]
+mass = 10.0
+gravity_scale = 4.0
+angular_damp = 5.0
+script = ExtResource("2")
+bulletScene = ExtResource("4")
+
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6")
+volume_db = -25.0
+bus = &"SFX"
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("5_4wape")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_4wape")
+offset = Vector2(226, 0)
+
+[node name="Marker2D" type="Marker2D" parent="WeaponSprite"]
+position = Vector2(440, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("3")
+
+[node name="FloorRayCast" type="RayCast2D" parent="."]

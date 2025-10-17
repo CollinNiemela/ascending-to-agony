@@ -1,0 +1,43 @@
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dvkt1ob4ldxfs"]
+
+[ext_resource type="Texture2D" uid="uid://cd6l4glr7oyd6" path="res://Assets/Environment/BlockFull.svg" id="1_vwpmf"]
+[ext_resource type="Texture2D" uid="uid://sb6eqih41cmj" path="res://Assets/Environment/TopFlatBlock.svg" id="2_r7u3s"]
+[ext_resource type="Texture2D" uid="uid://bwtrky6v05uv" path="res://Assets/Environment/TopRightBlock.svg" id="7_cumrd"]
+[ext_resource type="Texture2D" uid="uid://dvr5d8d65xkas" path="res://Assets/Environment/RightTopBottomBlock.svg" id="8_ea015"]
+[ext_resource type="Texture2D" uid="uid://o6vqkgcev7hd" path="res://Assets/Environment/TopBottomFlatBlock.svg" id="9_r7u3s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cjfsy"]
+texture = ExtResource("1_vwpmf")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3e6d"]
+texture = ExtResource("2_r7u3s")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x43i6"]
+texture = ExtResource("7_cumrd")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quu8m"]
+texture = ExtResource("8_ea015")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cumrd"]
+texture = ExtResource("9_r7u3s")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(96, 96)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "BlackBlocks"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_cjfsy")
+sources/1 = SubResource("TileSetAtlasSource_b3e6d")
+sources/6 = SubResource("TileSetAtlasSource_x43i6")
+sources/7 = SubResource("TileSetAtlasSource_quu8m")
+sources/8 = SubResource("TileSetAtlasSource_cumrd")

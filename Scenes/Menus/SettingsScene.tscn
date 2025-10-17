@@ -1,0 +1,371 @@
+[gd_scene load_steps=19 format=3 uid="uid://df1db28ygle5w"]
+
+[ext_resource type="Script" uid="uid://cub5rhexwmj6s" path="res://Scripts/UI/SettingsMenu.cs" id="1_ijbxe"]
+[ext_resource type="Theme" uid="uid://m3i132w8tcdw" path="res://Themes/Menu/MainMenuTitleTheme.tres" id="2_p4p37"]
+[ext_resource type="Theme" uid="uid://b8sqjx6gxdf3u" path="res://Themes/Menu/MainMenuHeadingTheme.tres" id="4_e1q7w"]
+[ext_resource type="Theme" uid="uid://biiyty5u6ir72" path="res://Themes/Menu/MainMenuTextTheme.tres" id="5_q3uh7"]
+[ext_resource type="Texture2D" uid="uid://b3qfqplpljs8u" path="res://Assets/UI/Grabber.svg" id="6_earv6"]
+[ext_resource type="Theme" uid="uid://d200xu7bsytyk" path="res://Themes/Menu/MainMenuSliderTheme.tres" id="6_j3v8h"]
+[ext_resource type="Theme" uid="uid://uvf13t34j2na" path="res://Themes/Menu/MainMenuDropdownTheme.tres" id="7_os3w0"]
+[ext_resource type="Texture2D" uid="uid://be3l0w4sn5g0f" path="res://Assets/UI/SelectedCheckbox.svg" id="9_earv6"]
+[ext_resource type="Texture2D" uid="uid://d1u4qa1u2g0js" path="res://Assets/UI/UnselectedCheckbox.svg" id="10_1smou"]
+[ext_resource type="FontFile" uid="uid://cp1i0m3w16e83" path="res://Fonts/MainMenuButtonFont.tres" id="10_r11of"]
+[ext_resource type="Theme" uid="uid://cypu6vbn1aai1" path="res://Themes/Menu/MainMenuButtonTheme.tres" id="11_7enl0"]
+
+[sub_resource type="StyleBoxFlat" id="190"]
+content_margin_left = 16.0
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="191"]
+bg_color = Color(0.803922, 0.803922, 0.803922, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="192"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="187"]
+content_margin_left = 16.0
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="188"]
+
+[sub_resource type="Theme" id="189"]
+VScrollBar/styles/grabber = SubResource("190")
+VScrollBar/styles/grabber_highlight = SubResource("191")
+VScrollBar/styles/grabber_pressed = SubResource("192")
+VScrollBar/styles/scroll = SubResource("187")
+VScrollBar/styles/scroll_focus = SubResource("188")
+
+[sub_resource type="StyleBoxEmpty" id="11"]
+
+[node name="SettingsControl" type="Control" node_paths=PackedStringArray("masterVolumeSlider", "musicVolumeSlider", "soundEffectsSlider", "screenSizeButton", "windowModeButton", "maxFpsButton", "terminalBox", "debugBox", "backButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ijbxe")
+masterVolumeSlider = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/RightMargin/ButtonContainer/MasterVolumeSlider")
+musicVolumeSlider = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/RightMargin/ButtonContainer/MusicVolumeSlider")
+soundEffectsSlider = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/RightMargin/ButtonContainer/SoundEffectsSlider")
+screenSizeButton = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/RightMargin/ButtonContainer/ScreenSizeButton")
+windowModeButton = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/RightMargin/ButtonContainer/WindowModeButton")
+maxFpsButton = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/RightMargin/ButtonContainer/MaxFpsButton")
+terminalBox = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/RightMargin/ButtonContainer/TerminalBox")
+debugBox = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/RightMargin/ButtonContainer/DebugBox")
+backButton = NodePath("ScrollContainer/SettingsMargin/SettingsVBox/CenterContainer/BackButton")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("189")
+horizontal_scroll_mode = 0
+
+[node name="SettingsMargin" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_bottom = 160
+
+[node name="SettingsVBox" type="VBoxContainer" parent="ScrollContainer/SettingsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox"]
+layout_mode = 2
+size_flags_vertical = 2
+theme = ExtResource("2_p4p37")
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="SettingsInfoContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SoundTitle" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer"]
+custom_minimum_size = Vector2(0, 81)
+layout_mode = 2
+theme = ExtResource("4_e1q7w")
+text = "SOUND SETTINGS"
+horizontal_alignment = 1
+
+[node name="SoundContainer" type="HSplitContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+dragger_visibility = 1
+
+[node name="LeftMargin" type="MarginContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="LabelContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/LeftMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MasterVolumeLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_q3uh7")
+text = "Master Volume:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MusicVolumeLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme = ExtResource("5_q3uh7")
+text = "Music Volume:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SoundEffectsVolumeLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme = ExtResource("5_q3uh7")
+text = "Sound Effects Volume:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RightMargin" type="MarginContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/RightMargin"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="MasterVolumeSlider" type="HSlider" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+theme = ExtResource("6_j3v8h")
+theme_override_icons/grabber = ExtResource("6_earv6")
+min_value = -70.0
+max_value = 0.0
+scrollable = false
+
+[node name="MusicVolumeSlider" type="HSlider" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+theme = ExtResource("6_j3v8h")
+min_value = -70.0
+max_value = 0.0
+scrollable = false
+
+[node name="SoundEffectsSlider" type="HSlider" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/SoundContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(500, 90)
+layout_mode = 2
+theme = ExtResource("6_j3v8h")
+min_value = -70.0
+max_value = 0.0
+scrollable = false
+
+[node name="VideoTitle" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer"]
+custom_minimum_size = Vector2(0, 81)
+layout_mode = 2
+theme = ExtResource("4_e1q7w")
+text = "VIDEO SETTINGS"
+horizontal_alignment = 1
+
+[node name="VideoContainer" type="HSplitContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+dragger_visibility = 1
+
+[node name="LeftMargin" type="MarginContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="LabelContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/LeftMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ScreenSizeLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_q3uh7")
+text = "Screen Size:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WindowModeLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme = ExtResource("5_q3uh7")
+text = "Window Mode:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MaximumFpsLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme = ExtResource("5_q3uh7")
+text = "Maximum FPS:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RightMargin" type="MarginContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/RightMargin"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="ScreenSizeButton" type="OptionButton" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(425, 90)
+layout_mode = 2
+size_flags_vertical = 2
+theme = ExtResource("7_os3w0")
+theme_override_constants/arrow_margin = 16
+item_count = 4
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1664x936"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "1024x576"
+popup/item_3/id = 3
+
+[node name="WindowModeButton" type="OptionButton" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(425, 90)
+layout_mode = 2
+size_flags_vertical = 2
+theme = ExtResource("7_os3w0")
+theme_override_constants/arrow_margin = 16
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Bordered"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
+
+[node name="MaxFpsButton" type="OptionButton" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/VideoContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(200, 90)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = ExtResource("7_os3w0")
+theme_override_fonts/font = ExtResource("10_r11of")
+theme_override_constants/arrow_margin = 16
+item_count = 4
+popup/item_0/text = "480"
+popup/item_0/id = 0
+popup/item_1/text = "240"
+popup/item_1/id = 1
+popup/item_2/text = "144"
+popup/item_2/id = 2
+popup/item_3/text = "60"
+popup/item_3/id = 3
+
+[node name="DebugTitle" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer"]
+custom_minimum_size = Vector2(0, 81)
+layout_mode = 2
+theme = ExtResource("4_e1q7w")
+text = "DEBUG SETTINGS"
+horizontal_alignment = 1
+
+[node name="DebugContainer" type="HSplitContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+dragger_visibility = 1
+
+[node name="LeftMargin" type="MarginContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="LabelContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/LeftMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="EnableTerminalLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_q3uh7")
+text = "Enable Terminal:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="EnableDebugLabel" type="Label" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/LeftMargin/LabelContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme = ExtResource("5_q3uh7")
+text = "Enable Debug Menu:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RightMargin" type="MarginContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/RightMargin"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="TerminalBox" type="CheckBox" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(105, 90)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/focus = SubResource("11")
+theme_override_icons/checked = ExtResource("9_earv6")
+theme_override_icons/unchecked = ExtResource("10_1smou")
+
+[node name="DebugBox" type="CheckBox" parent="ScrollContainer/SettingsMargin/SettingsVBox/SettingsInfoContainer/DebugContainer/RightMargin/ButtonContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/focus = SubResource("11")
+theme_override_icons/checked = ExtResource("9_earv6")
+theme_override_icons/unchecked = ExtResource("10_1smou")
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/SettingsMargin/SettingsVBox"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="ScrollContainer/SettingsMargin/SettingsVBox/CenterContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("11_7enl0")
+text = "BACK"

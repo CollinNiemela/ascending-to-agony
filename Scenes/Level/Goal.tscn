@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://br4rjf0d8kvhb"]
+
+[ext_resource type="Script" uid="uid://o5hb0f7y4khc" path="res://Scripts/Level/Goal.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://bp81bg2kv6u4k" path="res://Assets/Environment/Goal.svg" id="2_u5ws8"]
+
+[sub_resource type="RectangleShape2D" id="101"]
+size = Vector2(503, 355)
+
+[node name="Goal" type="Area2D"]
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 1.5)
+shape = SubResource("101")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5000038, 72.49999)
+scale = Vector2(1.0100001, 0.99399984)
+texture = ExtResource("2_u5ws8")
+
+[connection signal="body_entered" from="." to="." method="onFinishLineBodyEntered"]

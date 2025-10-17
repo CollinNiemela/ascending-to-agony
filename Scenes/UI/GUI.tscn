@@ -1,0 +1,263 @@
+[gd_scene load_steps=12 format=3 uid="uid://mq5c26y2cjvf"]
+
+[ext_resource type="Script" uid="uid://ddvyqw0i8ov6o" path="res://Scripts/UI/GUI.cs" id="1"]
+[ext_resource type="Theme" uid="uid://cypu6vbn1aai1" path="res://Themes/Menu/MainMenuButtonTheme.tres" id="2"]
+[ext_resource type="FontFile" path="res://Fonts/TerminalFont.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://b1fsabnib4g58" path="res://Assets/Player/Bullet.svg" id="3_ifern"]
+[ext_resource type="Theme" uid="uid://cc4s66yki5mi2" path="res://Themes/EndGame/EndGameTextTheme.tres" id="4"]
+[ext_resource type="Script" uid="uid://d053m8ana5bad" path="res://Scripts/UI/EndMenu.cs" id="5"]
+[ext_resource type="Script" uid="uid://6wmeg36uffy5" path="res://Scripts/UI/PauseMenu.cs" id="5_pausemenu"]
+[ext_resource type="AudioStream" uid="uid://b85qdmtfpoyr3" path="res://Sounds/SoundEffects/UI/MenuHover/retro_blip_beep_34.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://dtjo2gvrkuogd" path="res://Sounds/SoundEffects/UI/MenuClick/retro_ui_menu_blip_click_01.wav" id="8"]
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.188235, 0.235294, 0.235294, 0.627451)
+
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0.298039, 0.298039, 0.298039, 0)
+
+[node name="GUI" type="Control" node_paths=PackedStringArray("fpsCounter", "velocityAmount", "playerPosition", "debugControl")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+fpsCounter = NodePath("DebugControl/PanelContainer/VBoxContainer/FPSHBox/FPSCounter")
+velocityAmount = NodePath("DebugControl/PanelContainer/VBoxContainer/VelocityHBox/VelocityAmount")
+playerPosition = NodePath("DebugControl/PanelContainer/VBoxContainer/PlayerPosHBox/PlayerPosition")
+debugControl = NodePath("DebugControl")
+
+[node name="DebugControl" type="Control" parent="."]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="DebugControl"]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugControl/PanelContainer"]
+layout_mode = 2
+
+[node name="DebugTitle" type="Label" parent="DebugControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+text = "--- Debug Menu ---"
+
+[node name="FPSHBox" type="HBoxContainer" parent="DebugControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FPSLabel" type="Label" parent="DebugControl/PanelContainer/VBoxContainer/FPSHBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+text = "FPS:"
+
+[node name="FPSCounter" type="Label" parent="DebugControl/PanelContainer/VBoxContainer/FPSHBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+text = "NULL"
+
+[node name="VelocityHBox" type="HBoxContainer" parent="DebugControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VelocityLabel" type="Label" parent="DebugControl/PanelContainer/VBoxContainer/VelocityHBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+text = "Velocity:"
+
+[node name="VelocityAmount" type="Label" parent="DebugControl/PanelContainer/VBoxContainer/VelocityHBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+text = "NULL"
+
+[node name="PlayerPosHBox" type="HBoxContainer" parent="DebugControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PositionLabel" type="Label" parent="DebugControl/PanelContainer/VBoxContainer/PlayerPosHBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+text = "Position:"
+
+[node name="PlayerPosition" type="Label" parent="DebugControl/PanelContainer/VBoxContainer/PlayerPosHBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
+text = "NULL"
+
+[node name="BulletGUI" type="Node2D" parent="."]
+
+[node name="Bullet1" type="Sprite2D" parent="BulletGUI"]
+position = Vector2(1902.16, 25)
+rotation = -1.13446
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ifern")
+flip_h = true
+
+[node name="Bullet2" type="Sprite2D" parent="BulletGUI"]
+position = Vector2(1866.16, 25)
+rotation = -1.13446
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ifern")
+flip_h = true
+
+[node name="Bullet3" type="Sprite2D" parent="BulletGUI"]
+position = Vector2(1830.16, 25)
+rotation = -1.13446
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ifern")
+flip_h = true
+
+[node name="Bullet4" type="Sprite2D" parent="BulletGUI"]
+position = Vector2(1794.16, 25)
+rotation = -1.13446
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ifern")
+flip_h = true
+
+[node name="Bullet5" type="Sprite2D" parent="BulletGUI"]
+position = Vector2(1758.16, 25)
+rotation = -1.13446
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ifern")
+flip_h = true
+
+[node name="Bullet6" type="Sprite2D" parent="BulletGUI"]
+position = Vector2(1722.16, 25)
+rotation = -1.13446
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ifern")
+flip_h = true
+
+[node name="EndContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("playAgainButton", "mainMenuButton", "quitButton")]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("4")
+script = ExtResource("5")
+playAgainButton = NodePath("VBoxContainer/CenterContainer/VBoxContainer/PlayAgainButton")
+mainMenuButton = NodePath("VBoxContainer/CenterContainer/VBoxContainer/MainMenuButton")
+quitButton = NodePath("VBoxContainer/CenterContainer/VBoxContainer/QuitButton")
+
+[node name="MenuHovering" type="AudioStreamPlayer" parent="EndContainer"]
+stream = ExtResource("7")
+volume_db = -45.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="EndContainer"]
+stream = ExtResource("8")
+volume_db = -35.0
+bus = &"SFX"
+
+[node name="BackgroundAlphaPanel" type="Panel" parent="EndContainer"]
+modulate = Color(0.298039, 0.298039, 0.298039, 0.313726)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="EndGameLabel" type="Label" parent="EndContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Congratulations! 
+You completed the level!"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="EndContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="PlayAgainButton" type="Button" parent="EndContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2")
+text = "Play Again"
+
+[node name="MainMenuButton" type="Button" parent="EndContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2")
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="EndContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2")
+text = "Quit"
+
+[node name="PauseContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("resumeButton", "mainMenuButton", "quitButton")]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("4")
+script = ExtResource("5_pausemenu")
+resumeButton = NodePath("VBoxContainer/CenterContainer/VBoxContainer/ResumeButton")
+mainMenuButton = NodePath("VBoxContainer/CenterContainer/VBoxContainer/MainMenuButton")
+quitButton = NodePath("VBoxContainer/CenterContainer/VBoxContainer/QuitButton")
+
+[node name="MenuHovering" type="AudioStreamPlayer" parent="PauseContainer"]
+stream = ExtResource("7")
+volume_db = -45.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="PauseContainer"]
+stream = ExtResource("8")
+volume_db = -35.0
+bus = &"SFX"
+
+[node name="BackgroundAlphaPanel" type="Panel" parent="PauseContainer"]
+modulate = Color(0.298039, 0.298039, 0.298039, 0.313726)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="PauseLabel" type="Label" parent="PauseContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4")
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="ResumeButton" type="Button" parent="PauseContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2")
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="PauseContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2")
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="PauseContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("2")
+text = "Quit"

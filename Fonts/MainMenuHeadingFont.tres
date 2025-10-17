@@ -1,0 +1,21 @@
+[gd_resource type="FontFile" load_steps=2 format=3 uid="uid://bv23g7vbmm26k"]
+
+[ext_resource type="FontFile" uid="uid://drofpl8hipajf" path="res://Fonts/MotionControl-Bold.otf" id="1_ajwba"]
+
+[resource]
+fallbacks = Array[Font]([ExtResource("1_ajwba")])
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0

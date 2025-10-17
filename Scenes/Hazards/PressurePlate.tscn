@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://3xo630cp8jkd"]
+
+[ext_resource type="Script" uid="uid://cy7kpfi8dtq0r" path="res://Scripts/Hazards/PressurePlate.cs" id="3"]
+[ext_resource type="Texture2D" uid="uid://b5pavljxotlen" path="res://Assets/Hazards/PressurePlatePressed.svg" id="3_vcy6x"]
+[ext_resource type="PackedScene" uid="uid://8ipwju86nikl" path="res://Scenes/Other/OnScreenCheck.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://bmb0d8p1x3k7o" path="res://Assets/Hazards/PressurePlateUnpressed.svg" id="4_a34f1"]
+[ext_resource type="AudioStream" uid="uid://3pu5cs6h63mo" path="res://Sounds/SoundEffects/PressurePlate/retro_impact_colorful_07.wav" id="5"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(68, 18)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vcy6x")
+}],
+"loop": false,
+"name": &"Pressed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a34f1")
+}],
+"loop": false,
+"name": &"Unpressed",
+"speed": 0.0
+}]
+
+[node name="PressurePlate" type="Area2D"]
+script = ExtResource("3")
+
+[node name="PressedSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5")
+volume_db = -30.0
+pitch_scale = 1.1
+bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 39)
+shape = SubResource("1")
+
+[node name="PlateSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 39)
+scale = Vector2(0.14, 0.14)
+sprite_frames = SubResource("2")
+animation = &"Unpressed"
+
+[node name="OnScreenCheck" parent="." instance=ExtResource("4")]
+position = Vector2(3.8147e-06, 40)
+scale = Vector2(3.2, 0.8)
+
+[connection signal="body_entered" from="." to="." method="onPressurePlateBodyEntered"]
+[connection signal="body_exited" from="." to="." method="onPressurePlateBodyExited"]

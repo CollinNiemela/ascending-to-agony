@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://8ipwju86nikl"]
+
+[ext_resource type="Script" uid="uid://bcurugl545jxw" path="res://Scripts/Hazards/OnScreenCheck.cs" id="1"]
+
+[node name="OnScreenCheck" type="VisibleOnScreenNotifier2D"]
+position = Vector2(-1.90735e-06, -1.43051e-06)
+scale = Vector2(4.8, 2.4)
+script = ExtResource("1")
+
+[connection signal="screen_entered" from="." to="." method="onScreenEntered"]
+[connection signal="screen_exited" from="." to="." method="onScreenExited"]

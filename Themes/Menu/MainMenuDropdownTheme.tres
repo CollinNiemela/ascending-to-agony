@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://uvf13t34j2na"]
+
+[ext_resource type="FontFile" uid="uid://cp1i0m3w16e83" path="res://Fonts/MainMenuButtonFont.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://dugad3c3b6ecy" path="res://Assets/UI/UIBlockHover.svg" id="2_cesm6"]
+[ext_resource type="Texture2D" uid="uid://cbplsi0d2uy2q" path="res://Assets/UI/UIBlock.svg" id="3_x8ulf"]
+[ext_resource type="Texture2D" uid="uid://crvvfp25a1qml" path="res://Assets/UI/UIBlockSelect.svg" id="4_cesm6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plffq"]
+
+[sub_resource type="StyleBoxEmpty" id="1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ec5e2"]
+content_margin_left = 32.0
+texture = ExtResource("2_cesm6")
+texture_margin_left = 4.0
+texture_margin_top = 19.0
+texture_margin_right = 4.0
+texture_margin_bottom = 19.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j51kt"]
+content_margin_left = 32.0
+texture = ExtResource("3_x8ulf")
+texture_margin_left = 4.0
+texture_margin_top = 19.0
+texture_margin_right = 4.0
+texture_margin_bottom = 19.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4a408"]
+content_margin_left = 32.0
+texture = ExtResource("4_cesm6")
+texture_margin_left = 4.0
+texture_margin_top = 19.0
+texture_margin_right = 4.0
+texture_margin_bottom = 19.0
+
+[sub_resource type="ImageTexture" id="9"]
+
+[sub_resource type="ImageTexture" id="10"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5gsw"]
+texture = ExtResource("2_cesm6")
+texture_margin_left = 4.0
+texture_margin_top = 19.0
+texture_margin_right = 4.0
+texture_margin_bottom = 19.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hq76r"]
+texture = ExtResource("3_x8ulf")
+texture_margin_left = 4.0
+texture_margin_top = 19.0
+texture_margin_right = 4.0
+texture_margin_bottom = 19.0
+
+[resource]
+default_font_size = 64
+OptionButton/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/fonts/font = ExtResource("1")
+OptionButton/styles/disabled = SubResource("StyleBoxEmpty_plffq")
+OptionButton/styles/focus = SubResource("1")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_ec5e2")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_j51kt")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_4a408")
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/fonts/font = ExtResource("1")
+PopupMenu/icons/radio_checked = SubResource("9")
+PopupMenu/icons/radio_unchecked = SubResource("10")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_u5gsw")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_hq76r")

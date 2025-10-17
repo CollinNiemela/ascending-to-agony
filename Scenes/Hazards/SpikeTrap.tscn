@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c78bt8t5hhw1"]
+
+[ext_resource type="Texture2D" uid="uid://cw7vtg1c8s387" path="res://Assets/Hazards/SpikeTrapBase.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c4wgdklru3gvw" path="res://Assets/Hazards/SpikeTrap.svg" id="2_ss8yg"]
+[ext_resource type="Script" uid="uid://cxww2ia5krhxe" path="res://Scripts/Hazards/SpikeTrap.cs" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(112, 48)
+
+[node name="SpikeTrap" type="Area2D"]
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("1")
+
+[node name="TrapSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("2_ss8yg")
+offset = Vector2(0, 80)
+
+[node name="TrapBase" type="Line2D" parent="."]
+points = PackedVector2Array(0, -40, 0, -49)
+width = 4.0
+texture = ExtResource("1")
+texture_mode = 1
+
+[connection signal="body_entered" from="." to="." method="onSpikeTrapBodyEntered"]

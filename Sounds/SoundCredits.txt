@@ -1,0 +1,26 @@
+==================================================================
+Maskedsound - 8-Bit SFX Pack
+Website: https://maskedsound.itch.io/8-bit-sfx-pack
+License: No formal license required. Free to use in commercial games.
+Notes: Although credit is not required, this project thanks Maskedsound for their work.
+
+==================================================================
+Aleksis Shaw - 8-Bit Action RPG Sounds
+Website: https://aleksis-tristan-shaw.itch.io/8-bit-action-rpg
+License: Free for commercial and personal use upon purchase.
+Notes: Purchased for use in this project. Thanks to Aleksis Shaw for providing these sounds.
+
+==================================================================
+Peter Wayne - Retro 8-Bit Sounds
+Website: https://gamedevmarket.net/asset/retro-8-bit-sounds-9524
+License: GameDev Market Standard Pro License
+Key points:
+  • Assets and derivatives can be used in media products, commercial or non-commercial.
+  • Modifications allowed.
+Restrictions:
+  • Cannot be used in logos, trademarks, or service marks.
+  • Cannot be sold, shared, or redistributed outside of the media product.
+  • Cannot be used to create NFTs.
+Notes: Thanks to Peter Wayne for these assets.
+
+==================================================================

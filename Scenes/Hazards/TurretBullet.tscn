@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4fe8q3adbdqw"]
+
+[ext_resource type="Script" uid="uid://b8rv52fbbmdbe" path="res://Scripts/Hazards/TurretBullet.cs" id="1_vkakk"]
+[ext_resource type="Texture2D" uid="uid://b1fsabnib4g58" path="res://Assets/Player/Bullet.svg" id="2_vkakk"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(71, 18)
+
+[node name="TurretBullet" type="Area2D"]
+script = ExtResource("1_vkakk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_vkakk")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Bullet"]]
+position = Vector2(-0.5, 0)
+shape = SubResource("1")
+
+[connection signal="body_entered" from="." to="." method="onBulletBodyEntered"]

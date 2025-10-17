@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b8sqjx6gxdf3u"]
+
+[ext_resource type="FontFile" uid="uid://bv23g7vbmm26k" path="res://Fonts/MainMenuHeadingFont.tres" id="1_jevqn"]
+
+[resource]
+default_font = ExtResource("1_jevqn")
+default_font_size = 128
+Label/colors/font_color = Color(1, 1, 1, 1)

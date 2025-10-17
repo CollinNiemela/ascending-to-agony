@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://djeyhfs8iurmd"]
+
+[ext_resource type="Script" uid="uid://c3yjr5ms4lfoy" path="res://Scripts/Hazards/Saw.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://cxal3158a0doh" path="res://Assets/Hazards/Saw.svg" id="2_bnw7x"]
+[ext_resource type="PackedScene" uid="uid://8ipwju86nikl" path="res://Scenes/Other/OnScreenCheck.tscn" id="3"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 48.0
+
+[node name="Saw" type="Area2D"]
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="SawSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("2_bnw7x")
+
+[node name="OnScreenCheck" parent="." instance=ExtResource("3")]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(4.8, 4.8)
+
+[connection signal="body_entered" from="." to="." method="onSawBodyEntered"]

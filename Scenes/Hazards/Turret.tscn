@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbcawjo26n0pt"]
+
+[ext_resource type="Script" uid="uid://hhj53igqexlm" path="res://Scripts/Hazards/Turret.cs" id="3"]
+[ext_resource type="PackedScene" uid="uid://c4fe8q3adbdqw" path="res://Scenes/Hazards/TurretBullet.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://b3wbu6gu1gm7t" path="res://Assets/Hazards/TurretWeapon.svg" id="4_h5im4"]
+[ext_resource type="AudioStream" uid="uid://bn0ffkq7u4vgy" path="res://Sounds/SoundEffects/Turret/TurretShooting.wav" id="5"]
+[ext_resource type="Texture2D" uid="uid://dcdvy1hu64faq" path="res://Assets/Hazards/Turret.svg" id="5_5rxan"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(112, 48)
+
+[node name="Turret" type="Area2D" groups=["Turret"]]
+script = ExtResource("3")
+bulletScene = ExtResource("4")
+
+[node name="ShootAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5")
+volume_db = -25.0
+bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_h5im4")
+offset = Vector2(220, 0)
+
+[node name="Marker2D" type="Marker2D" parent="WeaponSprite"]
+position = Vector2(445.485, 0)
+scale = Vector2(2.66667, 2.66667)
+
+[node name="TurretSprite" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-06, 1.19209e-06)
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("5_5rxan")
+
+[node name="DestroyedTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="PlayerRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="DestroyedTimer" to="." method="onDestroyedTimerTimeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="onShootTimerTimeout"]
+[connection signal="timeout" from="WaitTimer" to="." method="onWaitTimerTimeout"]
