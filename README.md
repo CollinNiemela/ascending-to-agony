@@ -2,6 +2,12 @@
 
 A 2D physics-based platformer where you shoot bullets to propel yourself through a hazard-filled level.
 
+![Main Menu](Media/MainMenuScreenshot.png)
+
+## Gameplay Demo
+
+https://github.com/user-attachments/assets/gameplay-video.mp4
+
 ## Overview
 
 **Ascending To Agony** is a challenging 2D platformer inspired by the "Getting Over It" genre. Players must navigate a dangerous environment to reach the goal at the top of the map using a unique movement mechanic: shooting bullets in one direction propels you in the opposite direction. Master momentum and precision to survive turrets, rotating saws, spike traps, and other deadly obstacles.
@@ -38,11 +44,12 @@ A 2D physics-based platformer where you shoot bullets to propel yourself through
 ```
 Scenes/           - Game scenes (menus, levels, player, entities)
 Scripts/          - C# game logic
-Assets/           - Sprites, textures, and visual assets
+Assets/           - Handmade SVG Sprites, textures, and visual assets
 Sounds/           - Audio files
 Fonts/            - Custom fonts
 Themes/           - UI theme resources
-Tilemaps/         - Tilemap resources
+Tilesets/         - Tileset resources
+Media/            - Screenshot and gameplay video for documentation
 ```
 
 ## Developer Terminal
