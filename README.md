@@ -63,4 +63,4 @@ This project is source-available for viewing and educational purposes only.
 
 All rights reserved. You may view and study the code, but you may not use, copy, modify, or distribute this software or any portion of it without explicit written permission.
 
-Copyright © 2025 Collin
+Copyright © 2025 Collin Niemela
